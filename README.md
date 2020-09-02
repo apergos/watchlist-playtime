@@ -41,5 +41,16 @@ In particular, they import some database-related classes that are used to
 get credentials and establish a connection to the right database for the given
 wiki, etc.
 
-Don't actually use this for anything, please; it will likely eat your database
-for a nice tasty snack. Thanks!
+One fun thing about using mlr is that the hosts where this script runs are
+on debian stretch. That version of mlr does not recognize the -N (no headers)
+option. Trying to use the files with the headers was bad for the sort. In the
+end I wound up spinning up a docker image for stretch with gcc and stuff,
+in order to build a copy of mlr that then got shoved into my home dir for
+toy testing, with the path hardcoded into the scripts, ewww. You can find
+the docker stuff in the subdirectory docker-stretch-lol, along with a couple
+convenience scripts I used. They rely on the image ariel/devstretch:base
+which is from this repo: https://github.com/apergos/docker-devbase
+(see the stretch diectory).
+
+Don't actually use these scripts for anything, please; they will likely eat
+your database for a nice tasty snack. Thanks!
